@@ -72,30 +72,51 @@ public class Node {
         }
     }
 
-//    public boolean printRange(String start, String end) {
-//        boolean ended;
-//        if (this.children.get(0).index.matches("^art[.].*")) {
-//
-//        }else {
-//            this.children
-//        }
-//    }
-
-    public void print(String arg, Mode mode) {
-        if (this.index.matches(arg)) {
-            if (mode == Mode.Full) {
-                this.printFull();
-            }else {
-                this.printTableOfContent();
+    public boolean printRange(String start, String end) {
+        boolean ended = false;
+        if (this.children.get(0).index.matches("^art[.].*")) {
+            for (Node node : this.children) {
+                if (CompareIndex.containsInRange(node.index, start, end)) {
+                    System.out.println(end);
+                    node.printFull();
+                }else if (node.index.matches(end)) {
+                    node.printFull();
+                    return true;
+                }
             }
         }else {
-            int i = 0;
-            while (!this.children.get(i).index.matches(arg)) {
-                i++;
+            for (int i = 0; i < this.children.size() && !ended; i++) {
+                ended = this.children.get(i).printRange(start, end);
             }
-            this.children.get(i).print(arg, mode);
-            //wywo³aæ dla wszystkich dzieci w pêtli
         }
+
+        return ended;
+    }
+
+    public boolean print(String arg, Mode mode) {
+        if (this.children.size() == 0) {
+            return false;
+        }
+
+        for (Node child : this.children) {
+            if (child.index.matches(arg)) {
+                if (mode == Mode.Full) {
+                    child.printFull();
+                }else {
+                    System.out.println(this.title + " - " + this.content);
+                    child.printTableOfContent();
+                }
+                return true;
+            }
+        }
+
+        int i = 0;
+        boolean found = false;
+        while (!found && i < this.children.size()) {
+            found = this.children.get(i).print(arg, mode);
+            i++;
+        }
+        return found;
     }
 
     public boolean printDirect(ArrayList<String> args) {
