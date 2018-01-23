@@ -77,7 +77,6 @@ public class Node {
         if (this.children.get(0).index.matches("^art[.].*")) {
             for (Node node : this.children) {
                 if (CompareIndex.containsInRange(node.index, start, end)) {
-                    System.out.println(end);
                     node.printFull();
                 }else if (node.index.matches(end)) {
                     node.printFull();
