@@ -23,12 +23,12 @@ public class Point {
         Node node = new Node(title, ("ust." + title.replaceAll("\\s","")), content);
 
         i++;
-        for (; !file.get(i).matches("^\\d+[)] .*") && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≥.*") && !file.get(i).matches("^DZIA£.*"); i++) {
+        for (; !file.get(i).matches("^\\d+[)] .*") && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≈Ç.*") && !file.get(i).matches("^DZIA≈Å.*"); i++) {
             node.addContent(file.get(i));
         }
 
         NodePair tmp;
-        for (; i<file.size() && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≥.*") && !file.get(i).matches("^DZIA£.*");) {
+        for (; i<file.size() && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≈Ç.*") && !file.get(i).matches("^DZIA≈Å.*");) {
             tmp = SubPoint.parseSubPoint(i, file);
             i = tmp.getIndex();
             node.putChild(tmp.getNode());

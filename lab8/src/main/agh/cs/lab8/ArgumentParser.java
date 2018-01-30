@@ -20,10 +20,10 @@ public class ArgumentParser {
             if (!(i+1 < args.length)) {
                 throw new WrongArgumentsException();
             }else {
-                if(args[i].matches("^dzia³.*")) {
+                if(args[i].matches("^dziaÅ‚.*")) {
                     this.parsedArg.add(args[i] + args[i+1]);
                     i++;
-                }else if (args[i].matches("^rozdzia³.*")) {
+                }else if (args[i].matches("^rozdziaÅ‚.*")) {
                     this.parsedArg.add(args[i] + args[i+1]);
                     i++;
                 }else if (args[i].matches("^art.*")) {

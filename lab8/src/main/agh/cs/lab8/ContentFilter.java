@@ -6,7 +6,7 @@ public class ContentFilter {
 
     public static void contentFilter(Node head, ArrayList<String> args, Mode mode) throws WrongArgumentsException {
         if(args.size() == 1) {
-            if (args.get(0).matches("^dzia≥.*") || args.get(0).matches("^rozdzia≥.*")) {
+            if (args.get(0).matches("^dzia≈Ç.*") || args.get(0).matches("^rozdzia≈Ç.*")) {
                 head.print(args.get(0),mode);
             }else if (args.get(0).matches("^art[.].*")) {
                 if (args.get(0).matches(".*[-].*")) {

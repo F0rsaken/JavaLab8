@@ -13,7 +13,7 @@ public class Chapter {
         }
 
         NodePair tmp;
-        for (;i<file.size() && !file.get(i).matches("^Rozdzia³.*") && !file.get(i).matches("^DZIA£.*");) {
+        for (;i<file.size() && !file.get(i).matches("^RozdziaÅ‚.*") && !file.get(i).matches("^DZIAÅ.*");) {
             tmp = Article.parseArticle(i, file);
             i = tmp.getIndex();
             node.putChild(tmp.getNode());

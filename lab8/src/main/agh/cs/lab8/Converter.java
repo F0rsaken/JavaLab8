@@ -20,9 +20,9 @@ public class Converter {
     public Node convert() throws IOException{
         Node text = new Node("", "start", file.get(0));
 
-        //dodanie wstÍpu do ustawy
+        //dodanie wstƒôpu do ustawy
         int i;
-        for(i = 1; !file.get(i).matches("^DZIA£.*") && !file.get(i).matches("^Rozdzia≥.*"); i++) {
+        for(i = 1; !file.get(i).matches("^DZIA≈Å.*") && !file.get(i).matches("^Rozdzia≈Ç.*"); i++) {
             text.addContent(file.get(i));
         }
 

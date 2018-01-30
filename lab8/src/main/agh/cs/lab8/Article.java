@@ -28,7 +28,7 @@ public class Article {
             i++;
         }
 
-        for (; i<file.size() && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia³.*") && !file.get(i).matches("^DZIA£.*"); i++) {
+        for (; i<file.size() && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^RozdziaÅ‚.*") && !file.get(i).matches("^DZIAÅ.*"); i++) {
             if(node.getContent().equals("")) {
                 node.setContent(file.get(i));
             }else {
@@ -36,7 +36,7 @@ public class Article {
             }
         }
 
-        for (; i<file.size() && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia³.*") && !file.get(i).matches("^DZIA£.*");) {
+        for (; i<file.size() && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^RozdziaÅ‚.*") && !file.get(i).matches("^DZIAÅ.*");) {
             tmp = Point.parsePoint(i, file, "");
             i = tmp.getIndex();
             node.putChild(tmp.getNode());

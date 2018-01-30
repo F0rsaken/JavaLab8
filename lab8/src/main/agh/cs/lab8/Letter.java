@@ -14,7 +14,7 @@ public class Letter {
         Node node = new Node(title, ("lit." + title.replaceAll("\\s","")), content);
 
         i++;
-        for (; !file.get(i).matches("^\\D[)] .*") && !file.get(i).matches("^\\d+[.]") && !file.get(i).matches("^\\d+[)]") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≥.*") && !file.get(i).matches("^DZIA£.*"); i++) {
+        for (; !file.get(i).matches("^\\D[)] .*") && !file.get(i).matches("^\\d+[.]") && !file.get(i).matches("^\\d+[)]") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≈Ç.*") && !file.get(i).matches("^DZIA≈Å.*"); i++) {
             node.addContent(file.get(i));
         }
 

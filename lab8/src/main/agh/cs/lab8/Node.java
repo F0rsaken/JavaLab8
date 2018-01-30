@@ -36,11 +36,11 @@ public class Node {
     public void parseFile(int i, ArrayList<String> file) {
         NodePair tmp;
         for (; i < file.size();) {
-            if(file.get(i).matches("^DZIA£.*")) {
+            if(file.get(i).matches("^DZIAÅ.*")) {
                 tmp = Section.parseSection(i, file);
                 this.putChild(tmp.getNode());
                 i = tmp.getIndex();
-            }else if(file.get(i).matches("^Rozdzia³.*")) {
+            }else if(file.get(i).matches("^RozdziaÅ‚.*")) {
                 tmp = Chapter.parseChapter(i, file);
                 this.putChild(tmp.getNode());
                 i = tmp.getIndex();
@@ -63,10 +63,10 @@ public class Node {
 
     public void printTableOfContent() {
         for (Node node : this.children) {
-            if (node.title.matches("^DZIA£.*")) {
+            if (node.title.matches("^DZIAÅ.*")) {
                 System.out.println(node.title + " - " + node.content);
                 node.printTableOfContent();
-            }else if (node.title.matches("^Rozdzia³.*")) {
+            }else if (node.title.matches("^RozdziaÅ‚.*")) {
                 System.out.println(node.title + " - " + node.content);
             }
         }

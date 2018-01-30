@@ -8,19 +8,19 @@ public class Section {
         Node node = new Node(file.get(i), index, file.get(i+1));
 
         i += 2;
-        for (; !file.get(i).matches("^Rozdzia≥.*") && !file.get(i).matches("^Art[.].*"); i++) {
+        for (; !file.get(i).matches("^Rozdzia≈Ç.*") && !file.get(i).matches("^Art[.].*"); i++) {
             node.addContent(file.get(i));
         }
 
         NodePair tmp;
-        if (file.get(i).matches("^Rozdzia≥.*")) {
-            for (; i<file.size() && !file.get(i).matches("^DZIA£.*");) {
+        if (file.get(i).matches("^Rozdzia≈Ç.*")) {
+            for (; i<file.size() && !file.get(i).matches("^DZIA≈Å.*");) {
                 tmp = Chapter.parseChapter(i, file);
                 i = tmp.getIndex();
                 node.putChild(tmp.getNode());
             }
         }else if (file.get(i).matches("^Art[.].*")) {
-            for (; i<file.size() && !file.get(i).matches("^DZIA£.*");) {
+            for (; i<file.size() && !file.get(i).matches("^DZIA≈Å.*");) {
                 tmp = Article.parseArticle(i, file);
                 i = tmp.getIndex();
                 node.putChild(tmp.getNode());

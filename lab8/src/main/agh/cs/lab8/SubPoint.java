@@ -14,12 +14,12 @@ public class SubPoint {
         Node node = new Node(title, ("pkt." + title.replaceAll("\\s","")), content);
 
         i++;
-        for (; !file.get(i).matches("^\\D[)] .*") && !file.get(i).matches("^\\d+[)] .*") && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≥.*") && !file.get(i).matches("^DZIA£.*"); i++) {
+        for (; !file.get(i).matches("^\\D[)] .*") && !file.get(i).matches("^\\d+[)] .*") && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≈Ç.*") && !file.get(i).matches("^DZIA≈Å.*"); i++) {
             node.addContent(file.get(i));
         }
 
         NodePair tmp;
-        for (; !file.get(i).matches("^\\d+[)] .*") && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≥.*") && !file.get(i).matches("^DZIA£.*");) {
+        for (; !file.get(i).matches("^\\d+[)] .*") && !file.get(i).matches("^\\d+[.] .*") && !file.get(i).matches("^Art[.] .*") && !file.get(i).matches("^Rozdzia≈Ç.*") && !file.get(i).matches("^DZIA≈Å.*");) {
             tmp = Letter.parseLetter(i, file);
             i = tmp.getIndex();
             node.putChild(tmp.getNode());
